@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="bootstrap-5.0.2-dist/css/bootstrap.css">
+<style>
+.triangle {
+	width: 0;
+	height: 0;
+	border-top: 40px solid transparent;
+	/* border-left: 60px solid transparent; */
+	border-right: 120px solid transparent;
+	border-bottom: 100px solid rgb(98, 73, 43);
+	margin: auto;
+	/* display: none; */
+}
+.input{
+	text-align: center;
+	
+}
+.wrapper{
+	position: relative;
+}
+.aSide{
+	position: absolute;
+	left: 49%;
+	bottom: -12%;
+}
+.aSide:hover{
+	cursor: pointer;
+}
+.bSide{
+	position: absolute;
+    left: 44%;
+    bottom: 33px;
+}
+.bSide:hover{
+	cursor: pointer;
+}
+.cSide{
+	position: absolute;
+    left: 50%;
+    bottom: 50px;
+}
+.cSide:hover{
+	cursor: pointer;
+}
+.ASide{
+	position: absolute;
+    left: 45%;
+    bottom: 97px;
+}
+.ASide:hover{
+	cursor: pointer;
+}
+.BSide{
+	position: absolute;
+    left: 55%;
+    bottom: -7px;
+}
+.BSide:hover{
+	cursor: pointer;
+}
+h4{
+	margin-top: 43px;
+    position: absolute;
+    left: 37%;
+}
+#box1{
+	position: absolute;
+    margin-top: -32px;
+    left: 45%;
+	display: none;
+	width: 10%;
+}
+#box2{
+	position: absolute;
+    left: 33%;
+    margin-top: -153px;
+	display: none;
+	width: 10%;
+}
+#box3{
+	position: absolute;
+    left: 53%;
+    bottom: 84%;
+	display: none;
+	width: 10%;
+}
+#box4{
+	position: absolute;
+    left: 47%;
+    bottom: 92%;
+	display: none;
+	width: 10%;
+}
+#box5{
+	position: absolute;
+    left: 57%;
+    bottom: 75%;
+	display: none;
+	width: 10%;
+	
+}
+#btn{
+	position: absolute;
+    bottom: 50%;
+	left: 47%;
+}
+</style>
+</head>
+<body>
+	
+	<div class="wrapper">
+		<label for="box1" class="aSide" >a</label>
+		<label for="box2" class="bSide"> b</label>
+		<label for="box3" class="cSide">c</label>
+		<label for="box4" class="ASide">A</label>
+		<label for="box5" class="BSide">B</label>
+		<div class="triangle">
+		</div>
+	</div>
+	<br>
+	<div class="input">
+		<h4>Enter the value of triangle sides :</h4>
+		<br>
+		<input type="number" id="box1" onclick="eventShow()" placeholder="a =" >
+		<br><br>
+		<input type="number" id="box2" onclick="eventShow1()" placeholder="b =">
+		<br><br>
+		<input type="number" id="box3" onclick="eventShow2()" placeholder="c =">
+		<br><br>
+		<input type="number" id="box4" onclick="eventShow3()" placeholder="alpha =" >
+		<br><br>
+		<input type="number" id="box5" onclick="eventShow4()" placeholder="beta =">
+		<br><br>
+	
+		<button id="btn" >submit</button>
+	</div>
+	<script>
+		let a;
+		let b;
+		let c;
+		let alpha;
+		let beta;
+		let gamma;
+		let area;
+		let perimetar; 
+		let inradius;
+		let circumradius;
+		var img;
+		var show;
+		let s;
+		function eventShow(){
+			document.querySelector('#box1').style.display="inline";
+		}
+		function eventShow1(){
+			document.querySelector('#box2').style.display="inline";
+		}
+		function eventShow2(){
+			document.querySelector('#box3').style.display="inline";
+		}
+		function eventShow3(){
+			document.querySelector('#box4').style.display="inline";
+		}
+		function eventShow4(){
+			document.querySelector('#box5').style.display="inline";
+		}
+		
+	
+
+
+		document.getElementById("btn").onclick = function(){
+
+		a = document.getElementById("box1").value;
+		a= Number(a);
+
+		b=document.getElementById("box2").value;
+		b=Number(b);
+		
+
+		c=document.getElementById("box3").value;
+		c=Number(c);
+
+		alpha=document.getElementById("box4").value;	
+		alpha=Number(alpha);
+
+		beta=document.getElementById("box5").value;
+		beta=Number(beta);
+
+		if(a>0 && alpha>0){
+
+		//when we enter value of a and alpha //
+
+		c= (a)/(Math.sin(alpha));
+
+		document.write("C is :" + c + "<br><br>")
+
+		b= a;
+
+		document.write("b is :" + b + "<br><br>");
+
+		beta = 90 - alpha;
+
+		document.write("beta is : " + beta + "<br><br>" );
+
+		area = (a)*(b)/2;
+
+		document.write("area is : "+ area + "<br><br>");
+
+		perimetar=a+b+c;
+
+		document.write("perimetar is :" + perimetar + "<br><br>");
+
+		inradius = ((a)*(b))/perimetar;
+
+		document.write("inradius is :" + inradius + "<br><br>");
+
+		circumradius = c/2;
+
+		document.write("circumradius is :"+ circumradius+"<br><br>");
+		}
+		else if(b>0 && alpha>0){
+		
+		//when we enter value of b and alpha //
+
+		c= b/(Math.cos(alpha));
+
+		document.write("c is : "+ c + "<br><br>");
+
+		a=b;
+
+		document.write("b is :" + a + "<br><br>");
+
+		beta = 90 - alpha;
+
+		document.write("beta is : " + beta + "<br><br>" );
+
+		area = (a)*(b)/2;
+
+		document.write("area is : "+ area + "<br><br>");
+
+		perimetar=a+b+c;
+
+		document.write("perimetar is :" + perimetar + "<br><br>");
+
+		inradius = ((a)*(b))/perimetar;
+
+		document.write("inradius is :" + inradius + "<br><br>");
+
+		circumradius = c/2;
+
+		document.write("circumradius is :"+ circumradius+"<br><br>");
+		}
+		else if(c>0 && alpha>0){
+		
+		//when we enter value of c and alpha //
+
+		a= c*(Math.sin(alpha));
+
+		document.write("a is : "+ a + "<br><br>");
+
+		b=c;
+
+		document.write("b is :" + b + "<br><br>");
+
+		beta = 90 - alpha;
+
+		document.write("beta is : " + beta + "<br><br>" );
+
+		area = (a)*(b)/2;
+
+		document.write("area is : "+ area + "<br><br>");
+
+		perimetar=a+b+c;
+
+		document.write("perimetar is :" + perimetar + "<br><br>");
+
+		inradius = ((a)*(b))/perimetar;
+
+		document.write("inradius is :" + inradius + "<br><br>");
+
+		circumradius = c/2;
+
+		document.write("circumradius is :"+ circumradius+"<br><br>");
+		}
+		else if(a>0 && beta>0){
+
+			c = a/(Math.cos(beta));
+
+			document.write("c is :" +c + "<br><br>");
+
+			b=a;
+
+			document.write("b is :" +b + "<br><br>");
+
+			alpha = 90-beta;
+
+			document.write("alpha is :" +alpha + "<br><br>");
+
+			area=(a)*(b)/2;
+
+			document.write("area is :" +area + "<br><br>");
+
+			perimetar=a+b+c;
+
+			document.write("perimetar is :" +perimetar + "<br><br>");
+
+			inradius = ((a)*(b))/perimetar;
+
+			document.write("inradius is :" + inradius + "<br><br>");
+
+			circumradius = c/2;
+
+			document.write("circumradius is :"+ circumradius+"<br><br>");
+
+		}
+		else if(b>0 && beta>0){
+
+			//when  enter value of b and beta //
+
+			c= b/(Math.sin(beta));
+
+			document.write("c is : "+ c + "<br><br>");
+
+			a=b;
+
+			document.write("b is :" + a + "<br><br>");
+
+			beta = 90 - alpha;
+
+			document.write("beta is : " + beta + "<br><br>" );
+
+			area = (a)*(b)/2;
+
+			document.write("area is : "+ area + "<br><br>");
+
+			perimetar=a+b+c;
+
+			document.write("perimetar is :" + perimetar + "<br><br>");
+
+			inradius = ((a)*(b))/perimetar;
+
+			document.write("inradius is :" + inradius + "<br><br>");
+
+			circumradius = c/2;
+
+			document.write("circumradius is :"+ circumradius+"<br><br>");
+			}
+			else if(c>0 && beta>0){
+		
+				b= c*(Math.sin(beta));
+
+				document.write("b is : "+ b + "<br><br>");
+
+				a=c;
+
+				document.write("a is :" + a + "<br><br>");
+
+				alpha = 90 - beta;
+
+				document.write("alpha is : " + alpha + "<br><br>" );
+
+				area = (a)*(b)/2;
+
+				document.write("area is : "+ area + "<br><br>");
+
+				perimetar=a+b+c;
+
+				document.write("perimetar is :" + perimetar + "<br><br>");
+
+				inradius = ((a)*(b))/perimetar;
+
+				document.write("inradius is :" + inradius + "<br><br>");
+
+				circumradius = c/2;
+
+				document.write("circumradius is :"+ circumradius+"<br><br>");
+
+				document.querySelector('.triangle').style.display="block";
+
+				
+
+			}
+			else{
+				
+				perimetar = a+b+c;
+
+				document.write("perimeter is :" +perimetar +"<br><br>");
+
+				s = perimetar/2;
+
+				document.write("semiperimeter is :"+ s+"<br><br>");
+
+				let trianglArea  = Math.sqrt((s*(s-a)*(s-b)*(s-c)));
+
+				document.write("trianglArea is :"+trianglArea +"<br><br>");
+
+				inradius = trianglArea/s;
+
+				document.write("inradius is :"+ inradius+"<br><br>");
+
+				circumradius = (a*b*c)/4*inradius*s;
+
+				document.write("circumradius is :"+ circumradius+"<br><br>")
+			}
+			
+			
+		}
+		// function clickEvent(){
+		// 	document.querySelector('.triangle').style.display="block";
+		// }
+	</script>
+
+
+</body>
+</html>
